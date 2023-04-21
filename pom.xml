@@ -109,8 +109,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <maven.version>3.9.1</maven.version>
-        <mvnd.version>1.0-m6</mvnd.version>
+        <maven.version>3.8.7</maven.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <scala.version>2.12.17</scala.version>
@@ -132,7 +131,7 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <curator.version>2.12.0</curator.version>
         <etcd.version>0.7.3</etcd.version>
-        <delta.version>2.2.0</delta.version>
+        <delta.version>2.3.0</delta.version>
         <failsafe.verion>2.4.4</failsafe.verion>
         <fb303.version>0.9.3</fb303.version>
         <flexmark.version>0.62.2</flexmark.version>
@@ -144,7 +143,7 @@
         <grpc.version>1.48.0</grpc.version>
         <guava.version>31.1-jre</guava.version>
         <guava.failureaccess.version>1.0.1</guava.failureaccess.version>
-        <hadoop.version>3.3.4</hadoop.version>
+        <hadoop.version>3.3.5</hadoop.version>
         <hikaricp.version>4.0.3</hikaricp.version>
         <derby.version>10.14.2.0</derby.version>
         <fliptables.verion>1.0.2</fliptables.verion>
@@ -180,7 +179,7 @@
         <prometheus.version>0.16.0</prometheus.version>
         <protobuf.version>3.21.7</protobuf.version>
         <py4j.version>0.10.7</py4j.version>
-        <ranger.version>2.3.0</ranger.version>
+        <ranger.version>2.4.0</ranger.version>
         <scalatest.version>3.2.15</scalatest.version>
         <scalatestplus.version>3.2.15.0</scalatestplus.version>
         <scopt.version>4.1.0</scopt.version>
@@ -246,7 +245,8 @@
         <spotless.java.googlejavaformat.version>1.7</spotless.java.googlejavaformat.version>
         <spotless.python.includes></spotless.python.includes>
         <spotless.python.black.version>22.3.0</spotless.python.black.version>
-        <spotless.scala.scalafmt.version>3.7.1</spotless.scala.scalafmt.version>
+        <!-- Please also update .scalafmt.conf when you change it here -->
+        <spotless.scala.scalafmt.version>3.7.3</spotless.scala.scalafmt.version>
 
         <distMgmtReleaseId>apache.releases.https</distMgmtReleaseId>
         <distMgmtReleaseName>Apache Release Distribution Repository</distMgmtReleaseName>
@@ -2076,6 +2076,7 @@
                             <includes>
                                 <include>src/main/scala/**/*.scala</include>
                                 <include>src/test/scala/**/*.scala</include>
+                                <include>src/test/gen/scala/**/*.scala</include>
                             </includes>
                             <scalafmt>
                                 <version>${spotless.scala.scalafmt.version}</version>

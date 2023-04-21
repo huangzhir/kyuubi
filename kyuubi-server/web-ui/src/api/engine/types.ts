@@ -15,27 +15,11 @@
  * limitations under the License.
  */
 
-package org.apache.kyuubi.engine.trino.operation
-
-import io.trino.client.ClientSession
-
-import org.apache.kyuubi.operation.log.OperationLog
-import org.apache.kyuubi.session.Session
-
-class SetCurrentCatalog(session: Session, catalog: String)
-  extends TrinoOperation(session) {
-
-  private val operationLog: OperationLog = OperationLog.createOperationLog(session, getHandle)
-
-  override def getOperationLog: Option[OperationLog] = Option(operationLog)
-
-  override protected def runInternal(): Unit = {
-    try {
-      val session = trinoContext.clientSession.get
-      var builder = ClientSession.builder(session)
-      builder = builder.withCatalog(catalog)
-      trinoContext.clientSession.set(builder.build())
-      setHasResultSet(false)
-    } catch onError()
-  }
+interface IEngineSearch {
+  type: null | string
+  sharelevel: null | string
+  'hive.server2.proxy.user': null | string
+  subdomain?: null | string
 }
+
+export { IEngineSearch }
